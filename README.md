@@ -1,3 +1,15 @@
+## 📜 **Licença**  
+MIT License - **Use livremente em sua adega!**  
+
+**Desenvolvido por Veltrix**
+Integrantes: 
+RM:565191 Nome: Gabriel Akira
+RM:561820 Nome: Gustavo Santos
+RM:556645 Nome: Mauro Carlos
+RM:562098 Nome: Ana Luiza Tibiriçá
+
+---
+
 # 🍷 **Sistema de Monitoramento de Adega para Vinho** 🌡️🛡️  
 
 Um projeto **sofisticado e preciso** para monitorar as condições ideais de armazenamento de vinhos, garantindo **temperatura**, **umidade** e **luminosidade** adequadas para preservar a qualidade dos vinhos.  
@@ -49,39 +61,3 @@ Exibe:
 
 ---
 
-
-## 🍇 **Como Aplicar na Sua Adega?**  
-1. **Instale o sensor DHT22** longe de portas/fontes de calor.  
-2. **Posicione o LDR** onde há risco de luz solar/artificial.  
-3. **Use o LED RGB** para visualização rápida do status.  
-4. **Ajuste os limites** no código conforme o tipo de vinho.  
-
----
-
-## 📊 **Exemplo de Saída**  
-- **LCD**:  
-  ```
-  Vinho Guardado:  
-  14.5°C 65%  
-  ```  
-- **LED**: Verde (condições perfeitas!)  
-
----
-
-## 🚀 **Melhorias para Adegas Profissionais**  
-- [ ] **Adicionar módulo WiFi** para monitoramento remoto (ex.: ESP8266).  
-- [ ] **Integrar relé** para controlar ar-condicionado/umidificador automaticamente.  
-- [ ] **Log de dados** em SD card para análise histórica.  
-
----
-
-## 📜 **Licença**  
-MIT License - **Use livremente em sua adega!**  
-
-**Desenvolvido por [Seu Nome]**  
-
-🍾 **Saúde!** Se gostou, compartilhe com outros enófilos! ⭐  
-
---- 
-
-> 💡 **Dica profissional**: Para vinhos de guarda, mantenha a temperatura entre **12°C–14°C** e umidade em **65%–70%**.
