@@ -4,8 +4,11 @@ MIT License - **Use livremente em sua adega!**
 **Desenvolvido por Veltrix**
 Integrantes: 
 RM:565191 Nome: Gabriel Akira
+
 RM:561820 Nome: Gustavo Santos
+
 RM:556645 Nome: Mauro Carlos
+
 RM:562098 Nome: Ana Luiza Tibiriçá
 
 ---
