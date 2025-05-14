@@ -62,17 +62,41 @@ void setup(){
 }
 
 void loop() {
-    delay(delayMS); // Aguarda o tempo mínimo entre leituras
-    sensors_event_t event;
+    float somaTemp = 0;
+    float somaUmid = 0;
+    int somaLuz = 0;
+    int leiturasValidasTemp = 0;
+    int leiturasValidasUmid = 0;
 
-    // Leitura dos sensores
-    dht.temperature().getEvent(&event); // Lê temperatura
-    float temperatura = isnan(event.temperature) ? -999 : event.temperature; // Se leitura inválida, retorna -999
-    
-    dht.humidity().getEvent(&event); // Lê umidade
-    float umidade = isnan(event.relative_humidity) ? -1 : event.relative_humidity; // Se leitura inválida, retorna -1
+    // Realiza 5 leituras dos sensores
+    for (int i = 0; i < 5; i++) {
+        sensors_event_t event;
 
-    valorluz = analogRead(ldrpin); // Lê valor do sensor de luz
+        // Leitura temperatura
+        dht.temperature().getEvent(&event);
+        float temp = isnan(event.temperature) ? -999 : event.temperature;
+        if (temp != -999) {
+            somaTemp += temp;
+            leiturasValidasTemp++;
+        }
+
+        // Leitura umidade
+        dht.humidity().getEvent(&event);
+        float umid = isnan(event.relative_humidity) ? -1 : event.relative_humidity;
+        if (umid != -1) {
+            somaUmid += umid;
+            leiturasValidasUmid++;
+        }
+
+        // Leitura luminosidade
+        somaLuz += analogRead(ldrpin);
+
+        delay(200); // Pequeno delay entre leituras para estabilidade
+    }
+    // Calcula médias
+    float temperatura = (leiturasValidasTemp > 0) ? (somaTemp / leiturasValidasTemp) : -999;
+    float umidade = (leiturasValidasUmid > 0) ? (somaUmid / leiturasValidasUmid) : -1;
+    valorluz = somaLuz / 5;
     valorluz_prc = valorluz * 0.098; // Converte valor para porcentagem
 
     // Controle dos LEDs e buzzer (novas regras)
@@ -164,5 +188,5 @@ void loop() {
     lcd.setCursor(0, 1); // Vai para segunda linha
     lcd.print(valorluz_prc); // Mostra valor da luminosidade em porcentagem
     lcd.print("%");
-    delay(2000); // Aguarda 2 segundos
+    delay(1000); // Aguarda 1 segundo para completar os 5 segundos totais
 }
